@@ -1,17 +1,25 @@
-import React, { Component } from 'react'
+import React, { } from 'react'
 import { render } from 'react-dom'
-// import Pet from './Pet';
+import { Router, Link } from '@reach/router'
+import 'babel-polyfill';
+import './app';
 import SearchParams from './searchParams'
+import Details from './Details';
+
 const App = () => {
 
     return (
-        <div>
-            <h1>Adopt me!</h1>
-            {/* <Pet name="Nemo" animal="Fish" breed="Clow" /> */}
-            {/* <Pet name="Clifford" animal="Dog" breed="Red" /> */}
-            {/* <Pet name="Kazumi" animal="Cat" breed="kira kira doki dokiiiii" /> */}
-            <SearchParams />
-        </div>
+        <React.StrictMode>
+            <div>
+                <header>
+                    <Link to="/">Adopt me! </Link>
+                </header>
+                <Router>
+                    <SearchParams path="/" />
+                    <Details path="/details/:id" />
+                </Router>
+            </div>
+        </React.StrictMode>
     )
 };
 
